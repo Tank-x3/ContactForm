@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理者画面</title>
+    <link rel="stylesheet" href="style.css?v=1.0">
+</head>
+<body id="page-admin">
+    <script>
+        // 設定読み込み時のチラつき（FOUC）防止用
+        // script.jsの読み込みを待たずに、最速でクラスを適用します
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-mode');
+        }
+    </script>
+    <div class="container" style="max-width: 800px;">
+        <h2>管理者画面</h2>
+
+        <div id="admin-login-container" class="card">
+            <label>管理者パスワード</label>
+            <input type="password" id="admin_pass">
+            <button id="admin-login-btn" class="btn">データ取得</button>
+            <br>
+            <a href="index.html" style="display:block; text-align:center;">トップに戻る</a>
+        </div>
+
+        <div id="dashboard-container" class="hidden">
+            <div style="text-align:right; margin-bottom:10px;">
+                <button id="reload-btn" class="btn btn-secondary" style="width:auto; display:inline-block;">更新</button>
+            </div>
+            <div id="message-list">
+                </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=1.1"></script>
+</body>
+</html>

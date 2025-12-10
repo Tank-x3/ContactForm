@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ入力</title>
+    <link rel="stylesheet" href="style.css?v=1.0">
+</head>
+<body id="page-contact">
+    <script>
+        // 設定読み込み時のチラつき（FOUC）防止用
+        // script.jsの読み込みを待たずに、最速でクラスを適用します
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-mode');
+        }
+    </script>
+    <div class="container">
+        <h2>お問い合わせ入力</h2>
+
+        <div id="form-container" class="card">
+            <form id="contact-form">
+                <label>お問い合わせ種類</label>
+                <select id="category" required>
+                    <option value="" disabled selected>選択してください</option>
+                    <option value="不具合報告">不具合報告</option>
+                    <option value="使い方等の質問">使い方等の質問</option>
+                    <option value="ご意見ご感想">ご意見・ご感想</option>
+                    <option value="機能リクエスト">機能リクエスト</option>
+                    <option value="新規ツールのリクエスト">新規ツールのリクエスト</option>
+                    <option value="その他">その他</option>
+                </select>
+
+                <div id="tool_area" class="hidden">
+                    <label>対象のツール（任意）</label>
+                    <select id="tool_name">
+                        <option value="">指定なし / 全体</option>
+                        <option value="オリウマキャラガチャ">オリウマキャラガチャ</option>
+                        <option value="キャラシート作成機">キャラシート作成機</option>
+                        <option value="成績表ツール">成績表ツール</option>
+                        <option value="交流まとめツール">交流まとめツール</option>
+                        <option value="血統表ツール">血統表ツール</option>
+                        <option value="オリウマクイズ">オリウマクイズ</option>
+                        <option value="コーヒー淹れてよ">コーヒー淹れてよ</option>
+                        <option value="モブウマ娘メーカー">モブウマ娘メーカー</option>
+                        <option value="Writening入力支援">Writening入力支援</option>
+                        <option value="ライブシーンメモツール">ライブシーンメモツール</option>
+                        <option value="その他">その他</option>
+                    </select>
+                </div>
+
+                <div id="env_area" class="hidden">
+                    <label>ご利用のOS（任意）</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="os" value="iOS"> iOS (iPhone/iPad)</label>
+                        <label><input type="radio" name="os" value="Android"> Android</label>
+                        <label><input type="radio" name="os" value="Windows"> Windows</label>
+                        <label><input type="radio" name="os" value="Mac"> Mac</label>
+                        <label><input type="radio" name="os" value="Other"> その他</label>
+                    </div>
+
+                    <label>ご利用のブラウザ（任意）</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="browser" value="Chrome"> Chrome</label>
+                        <label><input type="radio" name="browser" value="Safari"> Safari</label>
+                        <label><input type="radio" name="browser" value="Edge"> Edge</label>
+                        <label><input type="radio" name="browser" value="X(Twitter)内"> X(Twitter)内ブラウザ</label>
+                    </div>
+                </div>
+
+                <label>お名前（任意）</label>
+                <input type="text" id="user_name" placeholder="匿名希望">
+
+                <label>お問い合わせ内容</label>
+                <textarea id="content" required placeholder="詳細をご記入ください"></textarea>
+
+                <button type="submit" id="submit-btn" class="btn">送信する</button>
+            </form>
+            <br>
+            <a href="index.html" style="display:block; text-align:center;">トップに戻る</a>
+        </div>
+
+        <div id="result-container" class="hidden">
+            <div class="card">
+                <h3>送信完了</h3>
+                <p>お問い合わせを受け付けました。<br>
+                以下の<b>ID</b>と<b>パスワード</b>は、返信を確認するために必要です。</p>
+                <p class="warning-text">※必ずスクリーンショットかメモを取ってください！再発行はできません。</p>
+                
+                <div class="result-box">
+                    <div>お問い合わせID</div>
+                    <div id="new-id" class="id-display">----</div>
+                    <hr style="border-color:#555">
+                    <div>確認用パスワード</div>
+                    <div id="new-pass" class="id-display">----</div>
+                </div>
+
+                <br>
+                <a href="index.html" class="btn btn-secondary">トップに戻る</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=1.0"></script>
+</body>
+</html>

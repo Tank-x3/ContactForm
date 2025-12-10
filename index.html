@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オリウマツール お問い合わせ</title>
+    <link rel="stylesheet" href="style.css?v=1.0">
+</head>
+<body id="page-index">
+    <script>
+        // 設定読み込み時のチラつき（FOUC）防止用
+        // script.jsの読み込みを待たずに、最速でクラスを適用します
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-mode');
+        }
+    </script>
+    <div class="container">
+        <h1>オリウマツール<br>お問い合わせ</h1>
+        
+        <div class="card" style="text-align: center;">
+            <p>不具合報告、ご要望、ご感想などをお寄せください。<br>
+            匿名で送信でき、後から返信を確認できます。</p>
+            
+            <br>
+
+            <a href="contact.html" class="btn">新しく問い合わせる</a>
+            <br>
+            <a href="status.html" class="btn btn-secondary">返信を確認する<br><span style="font-size:0.8em">(IDとパスワードが必要です)</span></a>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="admin.html" style="color: #444; text-decoration: none; font-size: 0.8em;">管理者ログイン</a>
+        </div>
+    </div>
+
+    <script src="script.js?v=1.1"></script>
+</body>
+</html>

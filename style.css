@@ -1,0 +1,210 @@
+/* style.css */
+:root {
+  /* デフォルト（ダークモード）の色定義 */
+  --bg-color: #1a1a1a;
+  --card-bg: #2d2d2d;
+  --text-color: #e0e0e0;
+  --accent-color: #4caf50;
+  --accent-hover: #45a049;
+  --border-color: #444;
+  --input-bg: #333;
+  --input-text: #fff;
+  --error-color: #ff6b6b;
+  --badge-text: #fff;
+}
+
+/* ライトモードの上書き定義 */
+body.light-mode {
+  --bg-color: #f0f2f5;
+  --card-bg: #ffffff;
+  --text-color: #333333;
+  --accent-color: #2e7d32; /* 少し濃い緑 */
+  --accent-hover: #1b5e20;
+  --border-color: #cccccc;
+  --input-bg: #f9f9f9;
+  --input-text: #333;
+  --error-color: #d32f2f;
+  --badge-text: #fff;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s; /* スムーズな切り替え */
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative; /* トグルボタンの配置基準 */
+}
+
+h1, h2, h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* カードスタイル */
+.card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影を少し薄く調整 */
+  transition: background-color 0.3s;
+}
+
+/* フォーム要素 */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+/* ラジオボタン */
+.radio-group {
+  margin-bottom: 20px;
+}
+.radio-group label {
+  display: inline-block;
+  margin-right: 15px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+/* ボタン */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  box-sizing: border-box;
+}
+
+.btn:hover {
+  background-color: var(--accent-hover);
+}
+
+.btn-secondary {
+  background-color: #757575; /* グレー調整 */
+  margin-top: 10px;
+}
+
+.btn-secondary:hover {
+  background-color: #616161;
+}
+
+/* モード切替ボタン */
+#theme-toggle-btn {
+  position: fixed; /* 画面に対して位置を固定 */
+  top: 15px;       /* 上から15px */
+  right: 15px;     /* 右から15px */
+  background: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.3s;
+  z-index: 1000; /* 他の要素より手前に表示 */
+}
+#theme-toggle-btn:hover {
+  background-color: var(--bg-color);
+}
+
+/* ユーティリティ */
+.hidden {
+  display: none !important;
+}
+
+.result-box {
+  background-color: var(--input-bg);
+  padding: 15px;
+  border: 2px solid var(--accent-color);
+  border-radius: 4px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.id-display {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--accent-color);
+  margin: 10px 0;
+  letter-spacing: 2px;
+}
+
+.warning-text {
+  color: #ff9800; /* 注意色は共通でOK */
+  font-size: 0.9em;
+}
+
+/* リンク */
+a {
+  color: var(--accent-color);
+}
+
+/* 管理画面・ステータスバッジ */
+.message-item {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  background-color: #757575;
+  color: #fff;
+  margin-bottom: 5px;
+}
+.status-badge.status-未対応 { background-color: var(--error-color); }
+.status-badge.status-確認中 { background-color: #ff9800; color: #000; }
+.status-badge.status-対応完了 { background-color: var(--accent-color); }
+
+.admin-reply-box {
+  background-color: rgba(128, 128, 128, 0.1); /* 背景色を透過で指定し両対応に */
+  padding: 10px;
+  margin-top: 10px;
+  border-left: 4px solid var(--accent-color);
+}

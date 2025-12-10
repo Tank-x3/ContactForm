@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>返信の確認</title>
+    <link rel="stylesheet" href="style.css?v=1.0">
+</head>
+<body id="page-status">
+    <script>
+        // 設定読み込み時のチラつき（FOUC）防止用
+        // script.jsの読み込みを待たずに、最速でクラスを適用します
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-mode');
+        }
+    </script>
+    <div class="container">
+        <h2>お問い合わせ状況確認</h2>
+
+        <div id="login-container" class="card">
+            <p>発行されたIDとパスワードを入力してください。</p>
+            <form id="login-form">
+                <label>お問い合わせID</label>
+                <input type="text" id="query_id" required placeholder="例: a1b2">
+                
+                <label>確認用パスワード</label>
+                <input type="password" id="query_pass" required placeholder="数字4桁">
+
+                <button type="submit" id="login-btn" class="btn">確認する</button>
+            </form>
+            <br>
+            <a href="index.html" style="display:block; text-align:center;">トップに戻る</a>
+        </div>
+
+        <div id="status-container" class="hidden">
+            <div class="card">
+                <h3>お問い合わせ内容</h3>
+                <div style="font-size: 0.9em; color: #aaa;">
+                    日時: <span id="disp_time"></span><br>
+                    カテゴリ: <span id="disp_category"></span>
+                </div>
+                <hr style="border-color:#444">
+                <div id="disp_content" style="white-space: pre-wrap;"></div>
+            </div>
+
+            <div class="card">
+                <h3>ステータス / 返信</h3>
+                <div id="status_badge" class="status-badge">---</div>
+                
+                <div id="admin_reply_area" class="admin-reply-box hidden">
+                    </div>
+                <p id="no_reply_msg" style="color:#888;">まだ返信はありません。</p>
+            </div>
+
+            <div class="card">
+                <h3>メッセージを追記する</h3>
+                <p style="font-size:0.9em;">補足情報や、返信への回答はこちらから送信できます。</p>
+                
+                <div id="user_reply_history" style="margin-bottom:20px; white-space: pre-wrap; color:#aaa; border-left:2px solid #666; padding-left:10px;"></div>
+
+                <textarea id="reply_content" placeholder="追記内容を入力..." style="height:100px;"></textarea>
+                <button id="reply-btn" class="btn">追記を送信</button>
+            </div>
+
+            <br>
+            <button id="logout-btn" class="btn btn-secondary">閉じる</button>
+        </div>
+    </div>
+
+    <script src="script.js?v=1.1"></script>
+</body>
+</html>
