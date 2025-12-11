@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     ${item.env ? '<div style="font-size:0.8em; color:#888;">端末: ' + item.env + '</div>' : ''}
                     <div style="font-size:0.8em; color:#aaa; margin-top:5px;">User: ${escapeHtml(item.name)} (ID: ${item.id})</div>
                     
-                    ${item.userReply ? '<div style="margin-top:10px; border-top:1px dashed #555; padding-top:5px; color:var(--text-color);"><strong>ユーザー追記:</strong><br>' + escapeHtml(item.userReply) + '</div>' : ''}
+                    ${item.userReply ? '<div style="margin-top:10px; border-top:1px dashed #555; padding-top:5px; color:var(--text-color); white-space: pre-wrap;"><strong>ユーザー追記:</strong><br>' + escapeHtml(item.userReply) + '</div>' : ''}
 
                     <hr style="border-color:var(--border-color); margin:15px 0;">
                     
